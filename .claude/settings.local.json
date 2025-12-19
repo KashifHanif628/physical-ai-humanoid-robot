@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp docs/digital-twin/exercises/chapter-1-exercises.md docs/digital-twin/exercises/chapter-2-exercises.md docs/digital-twin/exercises/chapter-3-exercises.md physical-ai-humanoid-robot/docs/digital-twin/exercises/)",
+      "Bash(npm run build)"
+    ]
+  }
+}

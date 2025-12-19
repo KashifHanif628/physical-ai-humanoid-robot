@@ -1,55 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+List of modified principles: N/A (Initial creation)
+Added sections: All principles and sections based on project specifications
+Removed sections: None (Initial creation)
+Templates requiring updates:
+- .specify/templates/plan-template.md: ✅ updated
+- .specify/templates/spec-template.md: ✅ updated
+- .specify/templates/tasks-template.md: ✅ updated
+- .specify/templates/commands/*.md: ✅ updated
+Follow-up TODOs: None
+-->
+
+# AI-Native Book with Integrated RAG Chatbot Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Spec-Driven Execution
+All implementation must follow Spec-Kit Plus specs; specs must cover book, backend, RAG, and data flow. Every feature starts with a well-defined specification before implementation begins.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Single Source of Truth
+Docusaurus content serves as the single source of truth for the book. All book content must be maintained in Markdown/MDX format in the Docusaurus project.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Technical Clarity
+All code and documentation must prioritize technical clarity for developers. Complex concepts must be explained with runnable code examples and clear explanations.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Reproducible Production System
+The system must be fully reproducible from scratch via specs. All dependencies and configurations must be documented to ensure anyone can rebuild the system.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Zero Hallucinations
+The RAG chatbot must answer from book content only, with strict enforcement of selected-text-only Q&A mode and proper citation of source sections.
 
-### [PRINCIPLE_6_NAME]
+### Production-Grade Standards
+All implementation must meet production-grade standards including proper error handling, observability, security considerations, and performance optimization.
 
+## Standards and Constraints
 
-[PRINCIPLE__DESCRIPTION]
+**Book**
+* Platform: Docusaurus (Markdown/MDX)
+* Written via Claude Code
+* Deployed to GitHub Pages
+* Runnable code examples
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**RAG Chatbot**
+* Stack: FastAPI + OpenAI Agents/ChatKit SDKs
+* Storage: Neon Serverless Postgres + Qdrant Cloud (Free Tier)
+* Must: Answer from book content only, Support "selected-text-only" Q&A, Cite source sections
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Constraints**
+* Static site deployment
+* No external or proprietary data
+* Fully documented env vars and setup
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+* All changes must follow Spec-Kit Plus methodology
+* Code must be reviewed for adherence to principles
+* Testing required for all functionality
+* Documentation must be updated with each change
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+All implementation must respect the core principles. The constitution supersedes all other practices. Amendments require proper documentation, approval, and migration plan if needed. All code reviews must verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-17 | **Last Amended**: 2025-12-17

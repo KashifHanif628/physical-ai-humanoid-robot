@@ -1,0 +1,111 @@
+# Complete VLA System Configuration
+# This configuration file contains parameters for the full Vision-Language-Action system
+
+voice_processing:
+  # Whisper model configuration
+  whisper_model: "base"  # tiny, base, small, medium, large
+  sample_rate: 16000     # Expected sample rate for Whisper
+  chunk_size: 1024       # Audio buffer chunk size
+  silence_threshold: 500 # Threshold for detecting speech vs silence
+
+llm_integration:
+  # LLM configuration for planning and cognitive tasks
+  model_name: "gpt-3.5-turbo"
+  temperature: 0.1
+  max_tokens: 1000
+  timeout: 30  # seconds
+
+action_execution:
+  # Action execution parameters
+  default_timeout: 30  # seconds for action completion
+  retry_attempts: 3
+  retry_delay: 2  # seconds between retries
+  parallel_execution: true  # Allow parallel execution of independent actions
+
+safety_monitoring:
+  # Safety parameters and limits
+  velocity_limits:
+    linear: 1.0  # m/s
+    angular: 0.5 # rad/s
+  acceleration_limits:
+    linear: 2.0  # m/s^2
+    angular: 1.0 # rad/s^2
+  joint_angle_limits:
+    min: -3.14   # radians
+    max: 3.14    # radians
+  torque_limits: 100.0  # N·m
+  emergency_stop_timeout: 5.0  # seconds to stop after emergency signal
+
+environment_sensing:
+  # Environmental monitoring parameters
+  obstacle_detection_range: 3.0  # meters
+  update_frequency: 10.0  # Hz
+  sensor_fusion_enabled: true
+
+planning_parameters:
+  # Parameters for cognitive planning
+  planning_horizon: 10.0  # seconds
+  replanning_frequency: 1.0  # Hz
+  path_optimization_enabled: true
+  collision_avoidance_enabled: true
+
+communication:
+  # Communication parameters
+  command_queue_size: 10
+  status_update_frequency: 1.0  # Hz
+  heartbeat_interval: 5.0  # seconds
+
+logging:
+  # Logging configuration
+  log_level: "INFO"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_file: "/var/log/vla_system.log"
+  enable_debug: false
+
+recovery_procedures:
+  # Recovery and fallback procedures
+  max_recovery_attempts: 3
+  fallback_behavior: "return_to_home"
+  manual_override_enabled: true
+  emergency_procedures:
+    - "stop_all_motors"
+    - "activate_brakes"
+    - "notify_operator"
+    - "save_current_state"
+
+performance:
+  # Performance tuning parameters
+  max_memory_usage: "2GB"
+  cpu_allocation: "high"
+  real_time_scheduling: true
+  priority_levels:
+    safety: 10
+    navigation: 8
+    manipulation: 7
+    perception: 6
+    communication: 5
+
+ros_integration:
+  # ROS 2 specific parameters
+  action_servers:
+    - "move_base"
+    - "manipulator_control"
+    - "sensor_interface"
+  topic_prefix: "/vla"
+  node_name: "vla_autonomous_humanoid"
+  qos_profile:
+    reliability: "reliable"
+    durability: "volatile"
+    history: "keep_last"
+    depth: 10
+
+testing:
+  # Parameters for testing and simulation
+  simulation_mode: false
+  test_scenarios:
+    - "simple_navigation"
+    - "object_interaction"
+    - "multi_step_task"
+    - "failure_recovery"
+  test_duration: 300  # seconds
+  validation_threshold: 0.95  # 95% success rate required

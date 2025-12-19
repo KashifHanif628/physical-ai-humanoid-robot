@@ -1,0 +1,8 @@
+{
+  "label": "Module 3: Isaac AI Brain (NVIDIA Isaac™)",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about NVIDIA Isaac tools for AI robotics: Isaac Sim, Isaac ROS, and Nav2 navigation."
+  }
+}

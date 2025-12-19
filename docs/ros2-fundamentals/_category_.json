@@ -1,0 +1,8 @@
+{
+  "label": "ROS 2 Fundamentals",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn the fundamentals of ROS 2, the robotic nervous system for communication and control."
+  }
+}

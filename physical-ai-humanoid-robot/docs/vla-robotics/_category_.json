@@ -1,0 +1,8 @@
+{
+  "label": "Module 4: VLA Robotics (Vision-Language-Action)",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about Vision-Language-Action systems for AI robotics: voice-to-action pipelines, LLM-driven cognitive planning, and autonomous humanoid systems."
+  }
+}

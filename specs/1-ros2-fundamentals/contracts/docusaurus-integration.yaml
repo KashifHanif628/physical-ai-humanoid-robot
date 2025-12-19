@@ -1,0 +1,127 @@
+# Docusaurus Integration Contract
+# Defines how the ROS 2 fundamentals module integrates with Docusaurus
+
+openapi: 3.0.0
+info:
+  title: Docusaurus Documentation Integration
+  description: Contract for how ROS 2 fundamentals content integrates with Docusaurus
+  version: 1.0.0
+
+paths: {}
+
+components:
+  schemas:
+    DocumentationModule:
+      type: object
+      required:
+        - id
+        - title
+        - content
+        - sidebar_label
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the documentation page
+          example: "chapter-1-ros2-fundamentals"
+        title:
+          type: string
+          description: Title displayed in browser tab and page
+          example: "ROS 2 Middleware Fundamentals"
+        content:
+          type: string
+          description: Markdown content with frontmatter
+          example: "---\ntitle: ROS 2 Middleware Fundamentals\nsidebar_label: Chapter 1\n---\n\n# ROS 2 Middleware Fundamentals\n\nContent here..."
+        sidebar_label:
+          type: string
+          description: Label used in sidebar navigation
+          example: "Chapter 1: ROS 2 Fundamentals"
+        description:
+          type: string
+          description: Meta description for SEO
+        keywords:
+          type: array
+          items:
+            type: string
+          description: Keywords for search optimization
+        tags:
+          type: array
+          items:
+            type: string
+          description: Content tags for categorization
+
+    CodeExample:
+      type: object
+      required:
+        - filename
+        - language
+        - code
+        - description
+      properties:
+        filename:
+          type: string
+          description: Name of the downloadable code file
+          example: "simple_publisher.py"
+        language:
+          type: string
+          description: Programming language for syntax highlighting
+          example: "python"
+        code:
+          type: string
+          description: Source code content
+          example: "import rclpy\nfrom rclpy.node import Node\n..."
+        description:
+          type: string
+          description: Explanation of what the code example demonstrates
+        execution_instructions:
+          type: string
+          description: How to run the code example
+        expected_output:
+          type: string
+          description: Description of expected behavior when running
+
+    Exercise:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - difficulty
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the exercise
+          example: "exercise-1-001"
+        title:
+          type: string
+          description: Title of the exercise
+          example: "Create Your First Publisher Node"
+        description:
+          type: string
+          description: Detailed instructions for the exercise
+        difficulty:
+          type: string
+          enum: [beginner, intermediate, advanced]
+          description: Difficulty level of the exercise
+        estimated_time:
+          type: integer
+          description: Estimated completion time in minutes
+          example: 30
+        prerequisites:
+          type: array
+          items:
+            type: string
+          description: What is needed before starting the exercise
+        steps:
+          type: array
+          items:
+            type: string
+          description: Sequential steps to complete the exercise
+        expected_outcome:
+          type: string
+          description: What the learner should achieve
+
+# This contract defines the structure and requirements for:
+# 1. Documentation pages that integrate with Docusaurus
+# 2. Code examples that can be displayed and downloaded
+# 3. Exercises that guide hands-on learning
+# 4. Proper metadata for SEO and navigation
